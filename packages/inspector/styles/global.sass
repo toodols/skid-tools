@@ -1,0 +1,94 @@
+.style-root
+	background-color: #444
+	color: white
+	position: relative
+
+.dock
+	position: fixed
+	z-index: 2147483646
+	top: 0px
+	height: 100vh
+	background: #444
+	width: var(--width)
+
+.dock.right
+	left: auto
+	right: 0px
+
+.resizing
+	pointer-events: none
+	user-select: none
+
+button
+	color: white
+
+.resize
+	cursor: ew-resize
+	height: 100%
+	width: 3px
+	float: left
+	position: absolute
+
+nav
+	background-color: rgb(0,0,0,0)
+	overflow-x: scroll
+	button
+		border: 0.5px solid #555
+		background-color: #444
+		cursor: pointer
+		&:hover
+			background-color: #333
+	.active
+		background-color: #111
+
+main
+	padding: 2px
+	width: 100%
+	height: 100%
+.page
+	width: 100%
+	height: 100%
+
+.page:not(.active)
+	display: none
+
+.about
+	padding: 10px
+
+.network
+	overflow: scroll
+	.log
+		&:hover
+			background-color: #446
+		height: 15px
+		div
+			white-space: nowrap
+			text-overflow: ellipsis
+			overflow: hidden
+			width: 100%
+			height: 100%
+	.log.fail
+		color: red
+
+.console
+	overflow: scroll
+	input
+		width: 100%
+		outline: none
+		background: rgb(0,0,0,0)
+	.logs
+		font-family: monospace
+		font-size: 10px
+		.log
+			.type
+				flex-shrink: 0
+				width: 20px
+			.time
+				color: gray
+				flex-shrink: 0
+				min-width: 50px
+				margin-right: 4px
+			display: flex
+			flex-direction: row
+			> div:not(.time, .type)
+				width: 100%

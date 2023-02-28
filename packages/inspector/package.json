@@ -1,0 +1,6 @@
+{
+	"description": "Provides the preact app for the inspector itself.",
+	"dependencies": {
+		"preact": "^10.11.3"
+	}
+}
