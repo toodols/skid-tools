@@ -68,6 +68,7 @@ export function init(){
 				id: 0,
 				values: JSON.parse(JSON.stringify(args))
 			})
+			console.warn(args);
 			inspectorCtx.events.emit("console-log")
 		}
 		onFetch(arg0: any, arg1: any): OnFetchHandle {

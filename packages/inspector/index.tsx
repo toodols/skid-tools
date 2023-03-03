@@ -7,11 +7,13 @@ import { About } from "./about";
 import { Network } from "./network";
 import { classNames } from "./util";
 import { Dock } from "./dock";
+import { Elements } from "./elements";
 
 export const AppReactContext = createContext<InspectorContext>(0 as never);
 
 function App({ ctx }: { ctx: InspectorContext }) {
 	const [currentTab, setCurrentTab] = useState("console");
+	const [visible, setVisible] = useState(true);
 	return (
 		<AppReactContext.Provider value={ctx}>
 			<style>{style.toString()}</style>
@@ -41,12 +43,18 @@ function App({ ctx }: { ctx: InspectorContext }) {
 					>
 						Network
 					</button>
-					<button style="float: right" onClick={() => {}}>
+					<button
+						className={"right"}
+						onClick={() => {
+							setVisible(false);
+						}}
+					>
 						Hide
 					</button>
 				</nav>
 				<Console active={currentTab === "console"} />
 				<Network active={currentTab === "network"} />
+				<Elements active={currentTab === "elements"} />
 				<About active={currentTab === "about"} />
 			</Dock>
 		</AppReactContext.Provider>

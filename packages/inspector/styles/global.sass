@@ -11,6 +11,11 @@
 	background: #444
 	width: var(--width)
 
+.dock.dragging
+	> *:not(.resize)
+		pointer-events: none
+		user-select: none
+
 .dock.right
 	left: auto
 	right: 0px
@@ -30,8 +35,13 @@ button
 	position: absolute
 
 nav
+	white-space: nowrap
 	background-color: rgb(0,0,0,0)
 	overflow-x: scroll
+	// not ideal, elements will stack if there are more than one
+	.right
+		position: absolute
+		right: 0px
 	button
 		border: 0.5px solid #555
 		background-color: #444
